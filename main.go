@@ -1,21 +1,22 @@
 package main
 
 import (
-	"auth/handler"
-	"auth/subscriber"
 	"fmt"
 
-	"basic"
+	"github.com/xiaobudongzhang/micro-auth/handler"
+	"github.com/xiaobudongzhang/micro-auth/subscriber"
 
-	"github.com/micro-in-cn/tutorials/microservice-in-micro/part2/auth/model"
-	"github.com/micro-in-cn/tutorials/microservice-in-micro/part2/basic/config"
+	basic "github.com/xiaobudongzhang/micro-basic/basic"
+
 	"github.com/micro/cli"
 	"github.com/micro/go-micro/registry"
 	"github.com/micro/go-micro/registry/etcd"
 	"github.com/micro/go-micro/v2"
 	log "github.com/micro/go-micro/v2/logger"
+	"github.com/xiaobudongzhang/micro-auth/model"
+	"github.com/xiaobudongzhang/micro-basic/config"
 
-	auth "auth/proto/auth"
+	auth "github.com/xiaobudongzhang/micro-auth/proto/auth"
 )
 
 func main() {

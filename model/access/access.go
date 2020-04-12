@@ -5,7 +5,7 @@ import (
 	"sync"
 
 	r "github.com/go-redis/redis"
-	"github.com/micro-in-cn/tutorials/microservice-in-micro/part3/basic/redis"
+	"github.com/xiaobudongzhang/micro-basic/redis"
 )
 
 var (

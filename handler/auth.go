@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"auth/model/access"
+	"github.com/xiaobudongzhang/micro-auth/model/access"
 	"context"
 	"log"
 	"strconv"

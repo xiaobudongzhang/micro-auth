@@ -2,9 +2,10 @@ package subscriber
 
 import (
 	"context"
+
 	log "github.com/micro/go-micro/v2/logger"
 
-	auth "auth/proto/auth"
+	auth "github.com/xiaobudongzhang/micro-auth/proto/auth"
 )
 
 type Auth struct{}

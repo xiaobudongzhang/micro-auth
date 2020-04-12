@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/micro-in-cn/tutorials/microservice-in-micro/part3/basic/config"
+	"github.com/xiaobudongzhang/micro-basic/config"
 	"honnef.co/go/tools/functions"
 )
 
