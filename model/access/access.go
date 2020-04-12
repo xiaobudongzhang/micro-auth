@@ -20,7 +20,7 @@ type service struct {
 type Service interface {
 	MakeAccessToken(subject *Subject) (ret string, err error)
 	GetCachedAccessToken(subject *Subject) (ret string, err error)
-	DelUserAccessToke(token string) (err error)
+	DelUserAccessToken(token string) (err error)
 }
 
 func GetService() (Service, error) {

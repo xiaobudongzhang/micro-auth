@@ -5,9 +5,9 @@ import (
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/xiaobudongzhang/micro-basic/config"
 	"github.com/micro/go-micro/util/log"
-	"github.com/micro/micro/v2/broker"
+	"github.com/micro/go-micro/v2/broker"
+	"github.com/xiaobudongzhang/micro-basic/config"
 )
 
 var (
@@ -41,8 +41,8 @@ func (s *service) MakeAccessToken(subject *Subject) (ret string, err error) {
 	return
 }
 
-func (s *service) GetCacheAccessToken(subject *Subject) (ret string, err error) {
-	ret, error = s.GetTokenFromCache(subject)
+func (s *service) GetCachedAccessToken(subject *Subject) (ret string, err error) {
+	ret, err = s.getTokenFromCache(subject)
 	if err != nil {
 		return "", fmt.Errorf("get token fail")
 	}
@@ -56,7 +56,7 @@ func (s *service) DelUserAccessToken(tk string) (err error) {
 	}
 
 	err = s.delTokenFromCache(&Subject{
-		ID:claims.Subject,
+		ID: claims.Subject,
 	})
 
 	if err != nil {
@@ -64,10 +64,10 @@ func (s *service) DelUserAccessToken(tk string) (err error) {
 	}
 
 	msg := &broker.Message{
-		Body:[]byte(claims.Subject)
+		Body: []byte(claims.Subject),
 	}
 
-	if err := broker.Publish(tokenExpiredTopic, msg) ; err != nil {
+	if err := broker.Publish(tokenExpiredTopic, msg); err != nil {
 		log.Logf("发布token失败%v", err)
 	} else {
 		fmt.Println("发布删除消息", string(msg.Body))

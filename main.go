@@ -4,15 +4,14 @@ import (
 	"fmt"
 
 	"github.com/xiaobudongzhang/micro-auth/handler"
-	"github.com/xiaobudongzhang/micro-auth/subscriber"
 
-	basic "github.com/xiaobudongzhang/micro-basic/basic"
+	basic "github.com/xiaobudongzhang/micro-basic"
 
-	"github.com/micro/cli"
-	"github.com/micro/go-micro/registry"
-	"github.com/micro/go-micro/registry/etcd"
+	"github.com/micro/cli/v2"
 	"github.com/micro/go-micro/v2"
 	log "github.com/micro/go-micro/v2/logger"
+	"github.com/micro/go-micro/v2/registry"
+	"github.com/micro/go-micro/v2/registry/etcd"
 	"github.com/xiaobudongzhang/micro-auth/model"
 	"github.com/xiaobudongzhang/micro-basic/config"
 
@@ -39,10 +38,10 @@ func main() {
 	}))
 
 	// Register Handler
-	auth.RegisterAuthHandler(service.Server(), new(handler.Auth))
+	auth.RegisterServiceHandler(service.Server(), new(handler.Service))
 
 	// Register Struct as Subscriber
-	micro.RegisterSubscriber("mu.micro.book.service.auth", service.Server(), new(subscriber.Auth))
+	//micro.RegisterSubscriber("mu.micro.book.service.auth", service.Server(), new(subscriber.Auth))
 
 	// Run service
 	if err := service.Run(); err != nil {
