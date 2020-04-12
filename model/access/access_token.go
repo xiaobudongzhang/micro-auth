@@ -29,6 +29,10 @@ func (s *service) MakeAccessToken(subject *Subject) (ret string, err error) {
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodES256, m)
+
+	fmt.Println("config.GetJwtConfig().GetSecretKey()")
+	fmt.Printf("%+v", config.GetJwtConfig())
+
 	ret, err = token.SignedString([]byte(config.GetJwtConfig().GetSecretKey()))
 	if err != nil {
 		return "", fmt.Errorf("create token fail %s", err)

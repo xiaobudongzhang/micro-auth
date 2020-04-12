@@ -10,6 +10,6 @@ require (
 	github.com/micro/go-micro v1.18.0
 	github.com/micro/go-micro/v2 v2.4.0
 	github.com/micro/micro/v2 v2.4.0
-	github.com/xiaobudongzhang/micro-basic v1.0.3
+	github.com/xiaobudongzhang/micro-basic v1.1.1
 	honnef.co/go/tools v0.0.1-2019.2.3
 )
