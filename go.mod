@@ -1,1 +1,1 @@
-module github.com:xiaobudongzhang/micro-auth
+module github.com/xiaobudongzhang/micro-auth
