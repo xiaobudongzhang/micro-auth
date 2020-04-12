@@ -39,5 +39,7 @@ func Init() {
 	}
 
 	ca = redis.GetRedis()
+
+	fmt.Println("ca ", ca)
 	s = &service{}
 }

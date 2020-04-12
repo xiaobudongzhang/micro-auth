@@ -23,7 +23,12 @@ func (s *service) createTokenClaims(subject *Subject) (m *jwt.StandardClaims, er
 }
 
 func (s *service) saveTokenToCache(subject *Subject, val string) (err error) {
-	if err = ca.Set(tokenIDKeyPrefix+subject.ID, val, tokenExpiredDate).Err(); err != nil {
+	fmt.Println("%+v:%+v:%+v:%+v", tokenIDKeyPrefix+subject.ID, val, tokenExpiredDate, ca)
+
+	err = ca.Set(tokenIDKeyPrefix+subject.ID, val, tokenExpiredDate).Err()
+	fmt.Println("%+v:%+v:%+v:%+v", tokenIDKeyPrefix+subject.ID, val, tokenExpiredDate, err)
+
+	if err != nil {
 		return fmt.Errorf("保存token失败" + err.Error())
 	}
 	return

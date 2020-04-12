@@ -28,16 +28,12 @@ func (s *service) MakeAccessToken(subject *Subject) (ret string, err error) {
 		return "", fmt.Errorf("create token claim fail, %", err)
 	}
 
-	token := jwt.NewWithClaims(jwt.SigningMethodES256, m)
-
-	fmt.Println("config.GetJwtConfig().GetSecretKey()")
-	fmt.Printf("%+v", config.GetJwtConfig())
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, m)
 
 	ret, err = token.SignedString([]byte(config.GetJwtConfig().GetSecretKey()))
 	if err != nil {
 		return "", fmt.Errorf("create token fail %s", err)
 	}
-
 	err = s.saveTokenToCache(subject, ret)
 	if err != nil {
 		return "", fmt.Errorf("save cache fail %s", err)
