@@ -5,13 +5,15 @@ import (
 	"sync"
 
 	r "github.com/go-redis/redis"
-	"github.com/xiaobudongzhang/micro-basic/redis"
+	"github.com/micro/xiaobudongzhang/micro-plugins/jwt"
+	"github.com/micro/xiaobudongzhang/micro-plugins/redis"
 )
 
 var (
-	s  *service
-	ca *r.Client
-	m  sync.RWMutex
+	s   *service
+	ca  *r.Client
+	m   sync.RWMutex
+	cfg = &jwt.Jwt{}
 )
 
 type service struct {

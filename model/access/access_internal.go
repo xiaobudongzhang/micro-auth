@@ -5,7 +5,6 @@ import (
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/xiaobudongzhang/micro-basic/config"
 )
 
 func (s *service) createTokenClaims(subject *Subject) (m *jwt.StandardClaims, err error) {
@@ -23,10 +22,8 @@ func (s *service) createTokenClaims(subject *Subject) (m *jwt.StandardClaims, er
 }
 
 func (s *service) saveTokenToCache(subject *Subject, val string) (err error) {
-	fmt.Println("%+v:%+v:%+v:%+v", tokenIDKeyPrefix+subject.ID, val, tokenExpiredDate, ca)
 
 	err = ca.Set(tokenIDKeyPrefix+subject.ID, val, tokenExpiredDate).Err()
-	fmt.Println("%+v:%+v:%+v:%+v", tokenIDKeyPrefix+subject.ID, val, tokenExpiredDate, err)
 
 	if err != nil {
 		return fmt.Errorf("保存token失败" + err.Error())
@@ -55,7 +52,7 @@ func (s *service) parseToken(tk string) (c *jwt.StandardClaims, err error) {
 		if !ok {
 			return nil, fmt.Errorf("不合法的token%v", token.Header["alg"])
 		}
-		return []byte(config.GetJwtConfig().GetSecretKey()), nil
+		return []byte(cfg.SecretKey), nil
 	})
 
 	if err != nil {

@@ -7,7 +7,6 @@ import (
 	"github.com/dgrijalva/jwt-go"
 	"github.com/micro/go-micro/util/log"
 	"github.com/micro/go-micro/v2/broker"
-	"github.com/xiaobudongzhang/micro-basic/config"
 )
 
 var (
@@ -30,7 +29,7 @@ func (s *service) MakeAccessToken(subject *Subject) (ret string, err error) {
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, m)
 
-	ret, err = token.SignedString([]byte(config.GetJwtConfig().GetSecretKey()))
+	ret, err = token.SignedString([]byte(cfg.SecretKey))
 	if err != nil {
 		return "", fmt.Errorf("create token fail %s", err)
 	}
