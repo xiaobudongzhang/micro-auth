@@ -5,8 +5,10 @@ import (
 	"sync"
 
 	r "github.com/go-redis/redis"
-	"github.com/micro/xiaobudongzhang/micro-plugins/jwt"
-	"github.com/micro/xiaobudongzhang/micro-plugins/redis"
+	"github.com/micro/go-micro/util/log"
+	"github.com/xiaobudongzhang/micro-basic/config"
+	"github.com/xiaobudongzhang/micro-plugins/jwt"
+	"github.com/xiaobudongzhang/micro-plugins/redis"
 )
 
 var (
@@ -40,8 +42,14 @@ func Init() {
 		return
 	}
 
-	ca = redis.GetRedis()
+	err := config.C().App("jwt", cfg)
+	if err != nil {
+		panic(err)
+	}
 
-	fmt.Println("ca ", ca)
+	log.Logf("配置 cfg:%v", cfg)
+
+	ca = redis.Redis()
+
 	s = &service{}
 }
