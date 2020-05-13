@@ -24,5 +24,6 @@ require (
 	github.com/xiaobudongzhang/micro-basic v1.1.2
 	github.com/xiaobudongzhang/micro-plugins v0.0.0-00010101000000-000000000000
 	google.golang.org/protobuf v1.22.0
+	gopkg.in/natefinch/lumberjack.v2 v2.0.0 // indirect
 	honnef.co/go/tools v0.0.1-2019.2.3
 )

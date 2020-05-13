@@ -5,12 +5,12 @@ import (
 
 	"github.com/xiaobudongzhang/micro-auth/handler"
 	"github.com/xiaobudongzhang/micro-basic/common"
+	"go.uber.org/zap"
 
 	basic "github.com/xiaobudongzhang/micro-basic/basic"
 
 	"github.com/micro/cli/v2"
 	"github.com/micro/go-micro/v2"
-	"github.com/micro/go-micro/v2/util/log"
 
 	"github.com/micro/go-micro/v2/registry"
 	"github.com/micro/go-micro/v2/registry/etcd"
@@ -19,9 +19,11 @@ import (
 
 	"github.com/micro/go-plugins/config/source/grpc/v2"
 	auth "github.com/xiaobudongzhang/micro-auth/proto/auth"
+	z "github.com/xiaobudongzhang/micro-plugins/zap"
 )
 
 var (
+	log     = z.GetLogger()
 	appName = "auth_service"
 	cfg     = &authCfg{}
 )
@@ -57,15 +59,14 @@ func main() {
 
 	// Run service
 	if err := service.Run(); err != nil {
-		log.Fatal(err)
+		log.Error("main error")
+		panic(err)
 	}
 }
 func registryOptions(ops *registry.Options) {
 	etcdCfg := &common.Etcd{}
 	err := config.C().App("etcd", etcdCfg)
 	if err != nil {
-
-		log.Log(err)
 		panic(err)
 	}
 	ops.Addrs = []string{fmt.Sprintf("%s:%d", etcdCfg.Host, etcdCfg.Port)}
@@ -84,7 +85,7 @@ func initCfg() {
 		panic(err)
 	}
 
-	log.Logf("配置 cfg:%v", cfg)
+	log.Info("配置 cfg:%v", zap.Any("cfg", cfg))
 
 	return
 }

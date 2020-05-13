@@ -431,6 +431,7 @@ github.com/xiaobudongzhang/micro-basic v1.1.1 h1:u1a9hBRVcnwmQa/N7mqTDT/EYZZZ5+t
 github.com/xiaobudongzhang/micro-basic v1.1.1/go.mod h1:I/u0z3ZP1fhyMRHvD/ZDG9B5lEMDPxBQJHUjt912ek8=
 github.com/xiaobudongzhang/micro-basic v1.1.2 h1:g4UvqUC+6/MBbn6zJ1Yzkh8vu5zvmPyFAE+sm0K2juE=
 github.com/xiaobudongzhang/micro-basic v1.1.2/go.mod h1:qgOy1bTEz0P7hsv5ZYyuf+mSMdcHSSFNkutIpdImtjE=
+github.com/xiaobudongzhang/micro-config v0.0.0-20200512103923-f49aa1cd5772 h1:/4KZ5rlgwRkuoKjLzsa3OyPKQGsMrmhqnJNgjrl+tb8=
 github.com/xlab/treeprint v0.0.0-20181112141820-a009c3971eca/go.mod h1:ce1O1j6UtZfjr22oyGxGLbauSBp2YVXpARAosm7dHBg=
 go.etcd.io/bbolt v1.3.3/go.mod h1:IbVyRI1SCnLcuJnV2u8VeU0CEYM7e686BmAb1XKL+uU=
 go.opencensus.io v0.20.1/go.mod h1:6WKK9ahsWS3RSO+PY9ZHZUfv2irvY6gN279GOPZjmmk=
@@ -649,6 +650,8 @@ gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df/go.mod h1:LRQQ+SO6ZHR7tOkp
 gopkg.in/h2non/gock.v1 v1.0.15/go.mod h1:sX4zAkdYX1TRGJ2JY156cFspQn4yRWn6p9EMdODlynE=
 gopkg.in/ini.v1 v1.42.0/go.mod h1:pNLf8WUiyNEtQjuu5G5vTm06TEv9tsIgeAvK8hOrP4k=
 gopkg.in/ini.v1 v1.44.0/go.mod h1:pNLf8WUiyNEtQjuu5G5vTm06TEv9tsIgeAvK8hOrP4k=
+gopkg.in/natefinch/lumberjack.v2 v2.0.0 h1:1Lc07Kr7qY4U2YPouBjpCLxpiyxIVoxqXgkXLknAOE8=
+gopkg.in/natefinch/lumberjack.v2 v2.0.0/go.mod h1:l0ndWWf7gzL7RNwBG7wST/UCcT4T24xpD6X8LsfU/+k=
 gopkg.in/ns1/ns1-go.v2 v2.0.0-20190730140822-b51389932cbc/go.mod h1:VV+3haRsgDiVLxyifmMBrBIuCWFBPYKbRssXB9z67Hw=
 gopkg.in/olivere/elastic.v5 v5.0.83/go.mod h1:LXF6q9XNBxpMqrcgax95C6xyARXWbbCXUrtTxrNrxJI=
 gopkg.in/resty.v1 v1.9.1/go.mod h1:vo52Hzryw9PnPHcJfPsBiFW62XhNx5OczbV9y+IMpgc=

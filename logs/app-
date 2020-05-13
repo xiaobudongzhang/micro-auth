@@ -1,0 +1,6 @@
+{"level":"info","ts":1589324624.652064,"caller":"zap/zap.go:50","msg":"zap plugin init completed"}
+{"level":"info","ts":1589324624.6741438,"caller":"micro-auth/main.go:88","msg":"配置 cfg:%v","cfg":{"name":"mu.micro.book.service.auth","version":"","address":"127.0.0.1","port":9030}}
+{"level":"info","ts":1589324705.3422682,"caller":"zap/zap.go:50","msg":"zap plugin init completed"}
+{"level":"info","ts":1589324705.3456829,"caller":"micro-auth/main.go:88","msg":"配置 cfg:%v","cfg":{"name":"mu.micro.book.service.auth","version":"","address":"127.0.0.1","port":9030}}
+{"level":"info","ts":1589325031.7909296,"caller":"zap/zap.go:50","msg":"zap plugin init completed"}
+{"level":"info","ts":1589325031.7938142,"caller":"micro-auth/main.go:88","msg":"配置 cfg:%v","cfg":{"name":"mu.micro.book.service.auth","version":"","address":"127.0.0.1","port":9030}}
