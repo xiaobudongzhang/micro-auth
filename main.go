@@ -17,8 +17,12 @@ import (
 	"github.com/xiaobudongzhang/micro-auth/model"
 	"github.com/xiaobudongzhang/micro-basic/config"
 
+	log2 "github.com/micro/go-micro/v2/util/log"
 	"github.com/micro/go-plugins/config/source/grpc/v2"
+	openTrace "github.com/micro/go-plugins/wrapper/trace/opentracing/v2"
+	"github.com/opentracing/opentracing-go"
 	auth "github.com/xiaobudongzhang/micro-auth/proto/auth"
+	tracer "github.com/xiaobudongzhang/micro-plugins/tracer/myjaeger"
 	z "github.com/xiaobudongzhang/micro-plugins/zap"
 )
 
@@ -35,11 +39,20 @@ type authCfg struct {
 func main() {
 	initCfg()
 	micReg := etcd.NewRegistry(registryOptions)
+
+	t, io, err := tracer.NewTracer(cfg.Name, "")
+	if err != nil {
+		log2.Fatal(err)
+	}
+	defer io.Close()
+	opentracing.SetGlobalTracer(t)
+
 	// New Service
 	service := micro.NewService(
 		micro.Name("mu.micro.book.service.auth"),
 		micro.Registry(micReg),
 		micro.Version("latest"),
+		micro.WrapHandler(openTrace.NewHandlerWrapper(opentracing.GlobalTracer())),
 	)
 
 	// Initialise service
